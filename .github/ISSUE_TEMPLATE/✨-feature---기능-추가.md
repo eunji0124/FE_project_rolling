@@ -3,7 +3,7 @@ name: "✨ Feature - 기능 추가"
 about: 이슈를 생성해주세요.
 title: "[✨ Feature] "
 labels: "✨ Feature"
-assignees: ''
+assignees: aahreum
 
 ---
 
