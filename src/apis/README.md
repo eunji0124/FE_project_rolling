@@ -2,7 +2,7 @@
  ============================================
 
  🔹 기본 사용법:
- import { api } from '../apis/axios';
+ import { api, teamApi } from './api/axios';
 
  const fetchData = async () => {
    try {
@@ -14,10 +14,16 @@
  };
 
  🔹 GET - 데이터 가져오기 (조회)
+ //공통 API 예시
  const getUsers = async () => {
    const response = await api.get('/users');
    return response.data;
  };
+ // 팀 API 예시
+const getMessages = async (messageId) => {
+  const response = await teamApi.get(`/messages/${messageId}`);
+  return response.data;
+};
 
  🔹 POST - 새 데이터 생성
  const createUser = async (userData) => {
@@ -49,3 +55,4 @@
  1. 항상 async/await와 try/catch 함께 사용하기
  2. URL에는 앞에 '/' 붙이기 (예: '/users', '/posts/123')
  3. baseURL이 자동으로 붙으니까 전체 URL 쓰지 말기
+ 4. 공통 API인지, 팀 API인지 먼저 확인 후 선택해서 호출하기
