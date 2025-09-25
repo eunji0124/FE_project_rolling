@@ -1,2 +1,51 @@
-- 작업할 때 삭제해주세요.
-- api 함수 관련 폴더입니다.
+ 📖 API 사용법 가이드
+ ============================================
+
+ 🔹 기본 사용법:
+ import { api } from '../apis/axios';
+
+ const fetchData = async () => {
+   try {
+     const response = await api.get('/endpoint');
+     console.log(response.data);
+   } catch (error) {
+     console.error(error);
+   }
+ };
+
+ 🔹 GET - 데이터 가져오기 (조회)
+ const getUsers = async () => {
+   const response = await api.get('/users');
+   return response.data;
+ };
+
+ 🔹 POST - 새 데이터 생성
+ const createUser = async (userData) => {
+   const response = await api.post('/users', {
+     name: '홍길동',
+     email: 'hong@example.com'
+   });
+   return response.data;
+ };
+
+ 🔹 PUT - 데이터 전체 수정
+ const updateUser = async (userId, userData) => {
+   const response = await api.put(`/users/${userId}`, userData);
+   return response.data;
+ };
+
+ 🔹 PATCH - 데이터 부분 수정
+ const updateUserName = async (userId, name) => {
+   const response = await api.patch(`/users/${userId}`, { name });
+   return response.data;
+ };
+
+ 🔹 DELETE - 데이터 삭제
+ const deleteUser = async (userId) => {
+   await api.delete(`/users/${userId}`);
+ };
+
+ ⚠️ 주의사항:
+ 1. 항상 async/await와 try/catch 함께 사용하기
+ 2. URL에는 앞에 '/' 붙이기 (예: '/users', '/posts/123')
+ 3. baseURL이 자동으로 붙으니까 전체 URL 쓰지 말기
