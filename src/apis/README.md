@@ -2,7 +2,7 @@
  ============================================
 
  🔹 기본 사용법:
- import { api, teamApi } from './api/axios';
+ import { api, teamApi } from '@/api/axios';
 
  const fetchData = async () => {
    try {
